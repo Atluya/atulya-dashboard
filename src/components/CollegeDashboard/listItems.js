@@ -180,6 +180,15 @@ export const mainListItems = (
         <ListItemText primary="Review" />
     </ListItemButton>
   </Link>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/file-upload"}>
+    <ListItemButton>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="File Upload" />
+    </ListItemButton>
+  </Link>
+
     
   </React.Fragment>
 );

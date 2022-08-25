@@ -23,6 +23,9 @@ import ImportantLinks from "./pages/College/ImportantLinksPage";
 import ImportantLinksPage from "./pages/College/ImportantLinksPage";
 import ContactPage from "./pages/College/ContactPage";
 import LocationPage from "./pages/College/LocationPage";
+import HostelPage from "./pages/College/HostelPage";
+import FileUpload from "./pages/College/FileUpload";
+import PlacementsPage from "./pages/College/PlacementsPage";
 
 export default function AppRoutes() {
   return (
@@ -45,6 +48,9 @@ export default function AppRoutes() {
         <Route path="/college/important-links" element={<CollegePage><ImportantLinksPage /></CollegePage>}/>
         <Route path="/college/contact" element={<CollegePage><ContactPage /></CollegePage>}/>
         <Route path="/college/location" element={<CollegePage><LocationPage /></CollegePage>}/>
+        <Route path="/college/hostels" element={<CollegePage><HostelPage /></CollegePage>}/>
+        <Route path="/college/file-upload" element={<CollegePage><FileUpload /></CollegePage>}/>
+        <Route path="/college/placements" element={<CollegePage><PlacementsPage /></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 
