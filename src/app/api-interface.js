@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiBaseUrl } from "../../utils/baseUrl";
+import { apiBaseUrl } from "../utils/baseURL";
 
 export const postApiWithoutToken = (path, data) => {
   return axios.post(apiBaseUrl + path, data, {
@@ -27,7 +27,6 @@ export const getApiWithoutToken = (path) => {
 
 export const postApi = (path, data) => {
   const token = localStorage.getItem("token");
-
   return axios.post(apiBaseUrl + path, data, {
     headers: {
       "Content-Type": "application/json",

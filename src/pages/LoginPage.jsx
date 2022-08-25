@@ -1,4 +1,5 @@
 import * as React from 'react';
+import jwt_decode from "jwt-decode";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,14 +13,19 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { postApiWithoutToken } from '../app/api-interface';
+import { toast } from 'react-toastify';
+import { getUserRoleFromToken } from '../utils/functions';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
+        Samvikshan
+      </Link>
+      {' '}by Team Atulya_W{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
@@ -29,13 +35,31 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LoginPage() {
-  const handleSubmit = (event) => {
+
+    const navigate = useNavigate();
+
+  const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    let email = data.get('email')
+    let password = data.get('password')
+    try{
+        let theResponse = await postApiWithoutToken("/auth/login", {email,password});
+       
+        let theRole = getUserRoleFromToken(theResponse.data.token);
+        if(theRole === "superadmin"){
+            navigate("/")
+        }else if(theRole === "college"){
+            navigate("/")
+        }else{
+            toast.error("You're not Authorized to use the dashboard.");
+            return;
+        }
+        localStorage.setItem("token", theResponse.data.token);
+        toast.success(theResponse.data.message);
+    }catch(e){
+        toast.error(e.response.data.message)
+    }
   };
 
   return (
@@ -70,7 +94,7 @@ export default function LoginPage() {
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              Login
             </Typography>
             <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
               <TextField
@@ -93,27 +117,18 @@ export default function LoginPage() {
                 id="password"
                 autoComplete="current-password"
               />
-              <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              />
               <Button
                 type="submit"
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign In
+                Login
               </Button>
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">
                     Forgot password?
-                  </Link>
-                </Grid>
-                <Grid item>
-                  <Link href="#" variant="body2">
-                    {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>
               </Grid>
