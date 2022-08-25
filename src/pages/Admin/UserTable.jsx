@@ -25,7 +25,7 @@ export default function UserTable(props) {
               response => {
                 console.log(response);
                 if(response.status === 200) {
-                  const data = response.data;
+                  const data = response.data.data;
                   console.log(data);
                   setusers(data);
                 }

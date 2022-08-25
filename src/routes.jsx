@@ -7,7 +7,7 @@ import TourPage from "./pages/College/TourPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import CollegeTable from "./pages/Admin/CollegeTable";
-import SuperadminTable from "./pages/Admin/Superadmin";
+import SuperadminTable from "./pages/Admin/SuperadminTable";
 import UserTable from "./pages/Admin/UserTable";
 import GalleryPage from "./pages/College/GalleryPage";
 import CollegeInfo from "./pages/Admin/CollegeInfo";
@@ -29,6 +29,7 @@ import HostelPage from "./pages/College/HostelPage";
 import FileUpload from "./pages/College/FileUpload";
 import PlacementsPage from "./pages/College/PlacementsPage";
 import PlacementStats from "./pages/College/PlacementStats";
+import UpdatesPage from "./pages/College/UpdatesPage";
 
 export default function AppRoutes() {
   return (
@@ -55,6 +56,7 @@ export default function AppRoutes() {
         <Route path="/college/file-upload" element={<CollegePage><FileUpload /></CollegePage>}/>
         <Route path="/college/placements" element={<CollegePage><PlacementsPage /></CollegePage>}/>
         <Route path="/college/placement-stats" element={<CollegePage><PlacementStats /></CollegePage>}/>
+        <Route path="/college/updates" element={<CollegePage><UpdatesPage /></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 
