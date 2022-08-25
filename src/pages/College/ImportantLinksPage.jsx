@@ -7,33 +7,29 @@ import Form from '@rjsf/material-ui/v5';
 import { putApi } from '../../app/api-interface';
 import { toast } from 'react-toastify';
 
-export default function GalleryPage() {
+export default function ImportantLinksPage() {
   
   const data = useSelector(selectCollege);
   const dispatch = useDispatch()
 
   const submitHandler = async({ formData }, e) => {
     e.preventDefault();
-    await putApi("/colleges/logged-in-college", {gallery: formData});
-    await dispatch(getCollegeAction());
-    toast.success("Gallery Updated Successfully!")
+    await putApi("/colleges/logged-in-college", {importantLinks: formData});
+    dispatch(getCollegeAction());
+    toast.success("Important Links Updated Successfully!");
   }
 
   const uiSchema = {}
 
   const schema = {
-    "title": "Gallery Information",
-    "description": "Gallery of the College",
+    "title": "Important Links Information",
+    "description": "Important Links of the College",
     "type": "array",
     items: {
       type: "object",
       properties: {
-          "caption": {
-              type: "string",
-          },
-          "mediaType": {
-            type: "string",
-            enum: ["image", "video"]
+          "name": {
+              type: "string"
           },
           "link": {
             type: "string"
@@ -44,7 +40,7 @@ export default function GalleryPage() {
 
   return (
     <>
-      <Form schema={schema} formData={data["gallery"]} onSubmit={submitHandler} uiSchema={uiSchema} />
+      <Form schema={schema} formData={data["importantLinks"]} onSubmit={submitHandler} uiSchema={uiSchema} />
     </>
   )
 }

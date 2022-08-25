@@ -1,11 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import axios from "axios";
 import { apiBaseUrl } from '../../utils/baseURL';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridEventListener} from '@mui/x-data-grid';
 import { getApiWithoutToken } from '../../app/api-interface';
+import { useNavigate } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 export default function CollegeTable(props) {
 
+  const navigate = useNavigate();
   const supplyIDs = (ar) => {
     let arr = ar;
     for(let i=0; i<arr.length; i++)
@@ -45,6 +48,12 @@ export default function CollegeTable(props) {
             getColleges();
     }, []);
 
+    const renderApproveButton = (params) => {
+      return (
+              <Button><a href="javascript:;" onClick={(e) =>navigate(`/admin/college/${params.row.id}`)}>View Details</a></Button>
+      )
+  }
+
     const columns = [
       { 
         field: 'name', 
@@ -60,6 +69,12 @@ export default function CollegeTable(props) {
         field: 'state',
         headerName: 'State',
         width: 250,
+      },
+      {
+        field: 'Details',
+        headerName: 'Details',
+        renderCell: renderApproveButton,
+        width: 160,
       }
     ];
     
@@ -68,16 +83,20 @@ export default function CollegeTable(props) {
     
       return (
         <>
+        <Button variant="contained" onClick={(e) =>navigate(`/admin/add-college`)}>Add College</Button>
         <div style={{ height: 630, width: '100%', margin: '20px auto' }}>
           <DataGrid
             rows={rows}
             columns={columns}
             pageSize={10}
             rowsPerPageOptions={[10]}
-            // onRowClick={navigate}
           />
         </div>
         </>
       );
 }
+
+
+  
+
 

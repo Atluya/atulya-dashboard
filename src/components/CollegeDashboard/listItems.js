@@ -83,7 +83,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/courses"}>
+  {/* <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/courses"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -91,7 +91,7 @@ export const mainListItems = (
         <ListItemText primary="Courses" />
       
     </ListItemButton>
-  </Link>
+  </Link> */}
   <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/alumni"}>
     <ListItemButton>
         <ListItemIcon>
@@ -124,7 +124,7 @@ export const mainListItems = (
         <ListItemText primary="Facilities" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/extra-curricular"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -132,7 +132,7 @@ export const mainListItems = (
         <ListItemText primary="Extra Curricular" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/scholarships"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -140,7 +140,7 @@ export const mainListItems = (
         <ListItemText primary="Scholarships" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/important-links"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -148,7 +148,7 @@ export const mainListItems = (
         <ListItemText primary="Important Links" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/contact"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -156,7 +156,7 @@ export const mainListItems = (
         <ListItemText primary="Contact Details" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/hostels"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -164,7 +164,7 @@ export const mainListItems = (
         <ListItemText primary="Hostel" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/ads"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -172,7 +172,7 @@ export const mainListItems = (
         <ListItemText primary="Ads Analytics" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/review"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />

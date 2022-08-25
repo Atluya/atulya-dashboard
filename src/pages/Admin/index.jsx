@@ -24,8 +24,6 @@ export default function AdminPage(props) {
           navigate("/login");
         }
     }, []);
-    
-    
 
   return (
     <>

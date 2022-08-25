@@ -19,7 +19,16 @@ export default function TourPage() {
     toast.success("Tour Updated Successfully!")
   }
 
-  const uiSchema = {}
+  const uiSchema = {
+    "items": {
+      "description": {
+        "ui:widget": "textarea",
+        "ui:options": {
+          rows: 5
+        }
+      }
+    }
+  }
 
   const schema = {
     "title": "Tour Information",
@@ -38,6 +47,9 @@ export default function TourPage() {
             type: "string"
           },
           "thumbnail": {
+            type: "string"
+          },
+          "description": {
             type: "string"
           },
           "voiceover": {

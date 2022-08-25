@@ -7,40 +7,43 @@ import Form from '@rjsf/material-ui/v5';
 import { putApi } from '../../app/api-interface';
 import { toast } from 'react-toastify';
 
-export default function DocumentsPage() {
+export default function ContactPage() {
   
   const data = useSelector(selectCollege);
   const dispatch = useDispatch()
 
   const submitHandler = async({ formData }, e) => {
     e.preventDefault();
-    await putApi("/colleges/logged-in-college", {documents: formData});
+    await putApi("/colleges/logged-in-college", {contactDetails: formData});
     dispatch(getCollegeAction());
-    toast.success("Documents Updated Successfully!");
+    toast.success("Contacts Updated Successfully!");
   }
 
   const uiSchema = {}
 
   const schema = {
-    "title": "Document Information",
-    "description": "Documents of the College",
-    "type": "array",
-    items: {
-      type: "object",
-      properties: {
-          "name": {
-              type: "string"
-          },
-          "link": {
-            type: "string"
-          }
-      }
+    "title": "Contact Information",
+    "description": "Contacts of the College",
+    "type": "object",
+    properties: {
+        emails: {
+            type: "array",
+            items: {
+                type: "string"
+            }
+        },
+        contactNumbers: {
+            type: "array",
+            items: {
+                type: "string"
+            }
+        }
     }
   };
 
   return (
     <>
-      <Form schema={schema} formData={data["documents"]} onSubmit={submitHandler} uiSchema={uiSchema} />
+      <Form schema={schema} formData={data["contactDetails"]} onSubmit={submitHandler} uiSchema={uiSchema} />
     </>
   )
 }
