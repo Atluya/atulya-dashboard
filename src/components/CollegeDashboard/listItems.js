@@ -180,11 +180,6 @@ export const mainListItems = (
         <ListItemText primary="Review" />
     </ListItemButton>
   </Link>
-    <ListItemButton>
-        <ListItemIcon>
-          <DashboardIcon />
-        </ListItemIcon>
-        <ListItemText primary="Logout" />
-    </ListItemButton>
+    
   </React.Fragment>
 );

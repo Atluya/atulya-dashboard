@@ -9,11 +9,15 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
-import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import {useNavigate} from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -69,6 +73,8 @@ export const DashboardContent = (props) => {
     setOpen(!open);
   };
 
+  const navigate = useNavigate();
+
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -119,6 +125,16 @@ export const DashboardContent = (props) => {
           <Divider />
           <List component="nav">
             {mainListItems}
+            <ListItemButton onClick={()=>{
+              console.log("hey")
+              localStorage.setItem("token", "")
+              window.location = "/login"
+            }}>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+            </ListItemButton>
           </List>
         </Drawer>
         <Box
@@ -140,8 +156,6 @@ export const DashboardContent = (props) => {
             props.children
           }
 
-
-            
           </Container>
         </Box>
       </Box>
