@@ -47,7 +47,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/social-media"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -56,7 +56,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/admission-process"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -65,7 +65,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/documents"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -74,7 +74,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/clubs"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -83,7 +83,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/courses"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -92,7 +92,7 @@ export const mainListItems = (
       
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/alumni"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -100,7 +100,7 @@ export const mainListItems = (
         <ListItemText primary="Alumni" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/placements"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -108,7 +108,7 @@ export const mainListItems = (
         <ListItemText primary="Placements" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/dispute"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
@@ -116,7 +116,7 @@ export const mainListItems = (
         <ListItemText primary="Dispute" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college"}>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/facilities"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />

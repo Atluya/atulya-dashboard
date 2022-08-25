@@ -14,4 +14,6 @@ const collegeReducer = (state = initialState, action: any) => {
   }
 };
 
+export const selectCollege = (state: RootState) => state.college;
+
 export default collegeReducer;
