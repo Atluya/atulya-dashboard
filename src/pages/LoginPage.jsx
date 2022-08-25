@@ -18,7 +18,7 @@ import { toast } from 'react-toastify';
 import { getUserRoleFromToken } from '../utils/functions';
 import { useNavigate } from "react-router-dom";
 
-function Copyright(props) {
+export const Copyright =(props) => {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
@@ -48,9 +48,9 @@ export default function LoginPage() {
        
         let theRole = getUserRoleFromToken(theResponse.data.token);
         if(theRole === "superadmin"){
-            navigate("/")
+            navigate("/admin")
         }else if(theRole === "college"){
-            navigate("/")
+            navigate("/college")
         }else{
             toast.error("You're not Authorized to use the dashboard.");
             return;
