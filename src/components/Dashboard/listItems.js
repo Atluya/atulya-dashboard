@@ -30,6 +30,22 @@ export const mainListItems = (
       </Link>
     </ListItemButton>
     <ListItemButton>
+      <Link to={"/admin/users"}>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Users" />
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
+      <Link to={"/admin/superadmins"}>
+      <ListItemIcon>
+        <PeopleIcon />
+      </ListItemIcon>
+      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Super Admins" />
+      </Link>
+    </ListItemButton>
+    <ListItemButton>
       <Link to={"/admin/news"}>
       <ListItemIcon>
         <PeopleIcon />

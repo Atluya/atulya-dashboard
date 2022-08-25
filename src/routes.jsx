@@ -7,6 +7,8 @@ import TourPage from "./pages/College/TourPage";
 import LandingPage from "./pages/LandingPage";
 import LoginPage from "./pages/LoginPage";
 import CollegeTable from "./pages/Admin/CollegeTable";
+import SuperadminTable from "./pages/Admin/Superadmin";
+import UserTable from "./pages/Admin/UserTable";
 import GalleryPage from "./pages/College/GalleryPage";
 import CollegeInfo from "./pages/Admin/CollegeInfo";
 import SocialMediaPage from "./pages/College/SocialMediaPage";
@@ -26,6 +28,7 @@ import LocationPage from "./pages/College/LocationPage";
 import HostelPage from "./pages/College/HostelPage";
 import FileUpload from "./pages/College/FileUpload";
 import PlacementsPage from "./pages/College/PlacementsPage";
+import PlacementStats from "./pages/College/PlacementStats";
 
 export default function AppRoutes() {
   return (
@@ -51,6 +54,7 @@ export default function AppRoutes() {
         <Route path="/college/hostels" element={<CollegePage><HostelPage /></CollegePage>}/>
         <Route path="/college/file-upload" element={<CollegePage><FileUpload /></CollegePage>}/>
         <Route path="/college/placements" element={<CollegePage><PlacementsPage /></CollegePage>}/>
+        <Route path="/college/placement-stats" element={<CollegePage><PlacementStats /></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 
@@ -58,6 +62,8 @@ export default function AppRoutes() {
         <Route exact path="/admin/colleges" element={<AdminPage><CollegeTable/></AdminPage>} />
         <Route exact path="/admin/college/:college_id" element={<AdminPage><CollegeInfo/></AdminPage>} />
         <Route exact path="/admin/add-college" element={<AdminPage><AddCollege/></AdminPage>} />
+        <Route exact path="/admin/users" element={<AdminPage><UserTable/></AdminPage>} />
+        <Route exact path="/admin/superadmins" element={<AdminPage><SuperadminTable/></AdminPage>} />
         {/* <Route path="/college/tour" element={<TourPage/>} /> */}
     </Routes>
   )

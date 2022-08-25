@@ -108,6 +108,14 @@ export const mainListItems = (
         <ListItemText primary="Placements" />
     </ListItemButton>
   </Link>
+  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/placement-stats"}>
+    <ListItemButton>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText primary="Placement Stats" />
+    </ListItemButton>
+  </Link>
   <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/dispute"}>
     <ListItemButton>
         <ListItemIcon>

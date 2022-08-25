@@ -53,12 +53,6 @@ export default function PlacementsPage() {
               type: "string"
           },
         }
-      },
-      avgPackage: {
-        type: 'number'
-      },
-      placementPercent: {
-        type: 'number'
       }
     }
   };
