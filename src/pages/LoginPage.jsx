@@ -17,6 +17,8 @@ import { postApiWithoutToken } from '../app/api-interface';
 import { toast } from 'react-toastify';
 import { getUserRoleFromToken } from '../utils/functions';
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { getCollegeAction } from '../app/redux/api/college';
 
 export const Copyright =(props) => {
   return (
@@ -36,6 +38,8 @@ const theme = createTheme();
 
 export default function LoginPage() {
 
+  const dispatch= useDispatch();
+
     const navigate = useNavigate();
 
   const handleSubmit = async(event) => {
@@ -50,6 +54,7 @@ export default function LoginPage() {
         if(theRole === "superadmin"){
             navigate("/admin")
         }else if(theRole === "college"){
+            await dispatch(getCollegeAction())
             navigate("/college")
         }else{
             toast.error("You're not Authorized to use the dashboard.");
