@@ -36,6 +36,9 @@ import DisputesPage from "./pages/Admin/DisputesPage";
 import ParticularDisputePage from "./pages/Admin/ParticularDispute";
 import CollegeDisputes from "./pages/Admin/CollegeDisputes";
 import ParticularDisputeCollegePage from "./pages/College/ParticularDisputeCollege";
+import CollegeDisputesPage from "./pages/College/CollegeDisputesPage";
+import AddAdmin from "./pages/Admin/AddAdmin";
+import ReportsPage from "./pages/Admin/ReportsPage";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -63,13 +66,12 @@ export default function AppRoutes() {
         <Route path="/college/placement-stats" element={<CollegePage><PlacementStats /></CollegePage>}/>
         <Route path="/college/updates" element={<CollegePage><UpdatesPage /></CollegePage>}/>
         <Route path="/college/review" element={<CollegePage><ReviewPage /></CollegePage>}/>
-        <Route path="/college/dispute" element={<CollegePage><DisputesPage /></CollegePage>}/>
+        <Route path="/college/dispute" element={<CollegePage><CollegeDisputesPage /></CollegePage>}/>
         <Route path="/college/dispute/:dispute_id" element={<CollegePage><ParticularDisputeCollegePage/></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
-         */}
-
-        
+         */}        
         <Route exact path="/admin/colleges" element={<AdminPage><CollegeTable/></AdminPage>} />
+        <Route exact path="/admin/reports" element={<AdminPage><ReportsPage/></AdminPage>} />
         <Route exact path="/admin/college/:college_id" element={<AdminPage><CollegeInfo/></AdminPage>} />
         <Route exact path="/admin/add-college" element={<AdminPage><AddCollege/></AdminPage>} />
         <Route exact path="/admin/users" element={<AdminPage><UserTable/></AdminPage>} />
@@ -78,6 +80,7 @@ export default function AppRoutes() {
         <Route exact path="/admin/disputes" element={<AdminPage><DisputesPage/></AdminPage>} />
         <Route exact path="/admin/disputes/:dispute_id" element={<AdminPage><ParticularDisputePage/></AdminPage>} />
         <Route exact path="/admin/college/disputes/:college_id" element={<AdminPage><CollegeDisputes/></AdminPage>} />
+        <Route exact path="/admin/add-superadmin" element={<AdminPage><AddAdmin/></AdminPage>} />
         {/* <Route path="/college/tour" element={<TourPage/>} /> */}
     </Routes>
   )

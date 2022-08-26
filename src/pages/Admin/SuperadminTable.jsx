@@ -77,6 +77,7 @@ export default function SuperadminTable(props) {
     
       return (
         <>
+        <Button variant="contained" onClick={(e) =>navigate(`/admin/add-superadmin`)}>Add Superadmin</Button>
         {/* {<Button variant="contained" onClick={(e) =>navigate(`/admin/add-college`)}>Add College</Button>} */}
         <div style={{ height: 630, width: '100%', margin: '20px auto' }}>
           <DataGrid

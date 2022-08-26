@@ -12,10 +12,9 @@ import { getCollegeAction } from '../../app/redux/api/college';
 import { getToken, getUserIDFromToken } from '../../utils/functions';
 import jwt_decode from "jwt-decode"
 
-export default function DisputesPage() {
+export default function CollegeDisputesPage() {
 
-  let college_id = getUserIDFromToken() ;
- 
+  let college_id = getUserIDFromToken(getToken()) ;
   const [ShowScreen, setShowScreen] = useState(false);
   const [previousDisputes, setPreviousDisputes] = useState([])
   const [remark, setRemark] = useState("");
@@ -57,7 +56,7 @@ export default function DisputesPage() {
                             Not Resolved
                         </>}</p>}
                             <p>{
-                            <Button className='btn' onClick={(e) =>navigate(`/college/disputes/${ele.id}`)}>View Details</Button>}</p>
+                            <Button className='btn' onClick={(e) =>navigate(`/college/dispute/${ele.id}`)}>View Details</Button>}</p>
                         </Paper>
                     </div>
                 </div>)

@@ -53,6 +53,14 @@ export const mainListItems = (
       <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="News" />
     </ListItemButton>
     </Link>
+    <Link to={"/admin/reports"}>
+    <ListItemButton>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Reports" />
+    </ListItemButton>
+    </Link>
     
   </React.Fragment>
 );
