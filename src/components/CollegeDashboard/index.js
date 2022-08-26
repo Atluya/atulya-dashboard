@@ -126,7 +126,6 @@ export const DashboardContent = (props) => {
           <List component="nav">
             {mainListItems}
             <ListItemButton onClick={()=>{
-              console.log("hey")
               localStorage.setItem("token", "")
               window.location = "/login"
             }}>

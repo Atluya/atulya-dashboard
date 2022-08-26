@@ -15,6 +15,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems } from './listItems';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const drawerWidth = 240;
 
@@ -119,6 +123,16 @@ export const DashboardContent = (props) => {
           <Divider />
           <List component="nav">
             {mainListItems}
+            <ListItemButton onClick={()=>{
+              console.log("hey")
+              localStorage.setItem("token", "")
+              window.location = "/login"
+            }}>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Logout" />
+            </ListItemButton>
           </List>
         </Drawer>
         <Box

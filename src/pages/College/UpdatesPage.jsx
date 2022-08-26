@@ -51,8 +51,6 @@ export default function UpdatesPage() {
         }catch(e){
             toast.error("Some Error Occurred!")
         }
-
-
     }
 
 

@@ -13,54 +13,53 @@ import { Link } from 'react-router-dom';
 
 export const mainListItems = (
   <React.Fragment>
-    <ListItemButton>
+    {/* <ListItemButton>
       <Link to={"/"}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Dashboard" />
       </Link>
-    </ListItemButton>
+    </ListItemButton> */}
+    <Link to={"/admin/colleges"}>
+      <ListItemButton>
+        <ListItemIcon>
+          <DashboardIcon />
+        </ListItemIcon>
+        <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Colleges" />
+      </ListItemButton>
+    </Link>
+    <Link to={"/admin/users"}>
+      <ListItemButton>
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Users" />
+      </ListItemButton>
+    </Link>
+    <Link to={"/admin/superadmins"}>
     <ListItemButton>
-      <Link to={"/admin/colleges"}>
       <ListItemIcon>
-        <ShoppingCartIcon />
-      </ListItemIcon>
-      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Colleges" />
-      </Link>
-    </ListItemButton>
-    <ListItemButton>
-      <Link to={"/admin/users"}>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Users" />
-      </Link>
-    </ListItemButton>
-    <ListItemButton>
-      <Link to={"/admin/superadmins"}>
-      <ListItemIcon>
-        <PeopleIcon />
+        <DashboardIcon />
       </ListItemIcon>
       <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Super Admins" />
-      </Link>
     </ListItemButton>
+    </Link>
+    <Link to={"/admin/news"}>
     <ListItemButton>
-      <Link to={"/admin/news"}>
       <ListItemIcon>
-        <PeopleIcon />
+        <DashboardIcon />
       </ListItemIcon>
       <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="News" />
-      </Link>
     </ListItemButton>
+    </Link>
+    <Link to={"/admin/disputes"}>
     <ListItemButton>
-      <Link to={"/admin/disputes"}>
       <ListItemIcon>
-        <PeopleIcon />
+        <DashboardIcon />
       </ListItemIcon>
       <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Disputes" />
-      </Link>
     </ListItemButton>
-    
+    </Link>
   </React.Fragment>
 );

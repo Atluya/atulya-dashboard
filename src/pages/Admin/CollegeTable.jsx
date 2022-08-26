@@ -50,7 +50,7 @@ export default function CollegeTable(props) {
 
     const renderApproveButton = (params) => {
       return (
-              <Button><a href="javascript:;" onClick={(e) =>navigate(`/admin/college/${params.row.id}`)}>View Details</a></Button>
+              <Button onClick={(e) =>navigate(`/admin/college/${params.row.id}`)}>View Details</Button>
       )
   }
 
@@ -70,12 +70,12 @@ export default function CollegeTable(props) {
         headerName: 'State',
         width: 250,
       },
-      {
-        field: 'Details',
-        headerName: 'Details',
-        renderCell: renderApproveButton,
-        width: 160,
-      }
+      // {
+      //   field: 'Details',
+      //   headerName: 'Details',
+      //   renderCell: renderApproveButton,
+      //   width: 160,
+      // }
     ];
     
     const rows = supplyIDs(colleges);

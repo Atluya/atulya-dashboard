@@ -16,8 +16,14 @@ export default function AddCollege() {
 
   const navigate = useNavigate();
   const [selectedCategories, setSelectedCategories] = React.useState();
-  const [Categories, setCategories] = React.useState([]);
+  const [categories, setCategories] = React.useState([]);
   const [ShowScreen, setShowScreen] = React.useState(false);
+
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [shortName, setShortName] = useState("")
+  const [categoryId, setCategoryId] = useState("")
+
   const handleCategoriesSelect = ((e) => {
     setSelectedCategories(e.target.value);
   });
@@ -49,38 +55,18 @@ export default function AddCollege() {
 
   const submitHandler = async(e) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    let email = data.get('email');
-    let name = data.get('name');
-    let shortName = data.get('shortName');
-    let categoryId = Number(selectedCategories['id']);
-    console.log({
-      email,name,shortName, categoryId
-    })
-    if(categoryId)
-    await postApi("/colleges", {email,name,shortName, categoryId}).then(
-      response => {
-        console.log({
-          email,name,shortName, categoryId
-        })
-        if(response.status === 201||response.status===203) {
-          const data = response.data;
-          toast.success(response.message);
-          navigate("/admin/colleges");
-        }
-        else
-        {
-          toast.error(response.message);
-          return 0;
-        }
+    let body = {
+      email, name, shortName, categoryId: Number(categoryId)
+    }
+    try{
+      let response = await postApi("/colleges", body);
+      toast.success("College Added Successfully!");
+      navigate("/admin/colleges")
+    }catch(e){
+      if(e.response.status === 409){
+        toast.error("Email ID already exists!")
       }
-    )
-    .catch(
-      err => {
-        toast.error(err.message);
-        return 0;
-      }
-    );
+    }
   }
 
   return (
@@ -89,64 +75,33 @@ export default function AddCollege() {
       <Typography component="h1" variant="h5">
         Add College
       </Typography>
-      <Box component="form" noValidate onSubmit={submitHandler} sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="email"
-          label="Email Address"
-          name="email"
-          autoComplete="email"
-          autoFocus
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="name"
-          label="Name"
-          type="text"
-          id="name"
-        />
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          name="shortName"
-          label="Short Name"
-          type="text"
-          id="shortName"
-        />
-        <InputLabel id="categories">Categories</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="categories"
-          // value={selectedCategories}
-          label="Category"
-          onChange={handleCategoriesSelect}
-        >
-          <MenuItem hidden>Category</MenuItem>
-          {Categories.map((value, key) => {
-            return (
-              <MenuItem value={value.id} key={key}>
-                {value.categoryName}
-              </MenuItem>
-            );
-          })}
-        </Select>
-        <Button
-          onClick={submitHandler}
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Submit
-        </Button>
-
-        
-      </Box>
+      <form onSubmit={submitHandler}>
+          <br />
+          <div className="form-group">
+              <label htmlFor="email">Email</label><br />
+              <input onChange={(e)=>setEmail(e.target.value)} type="email" className='form-control' name='email' id='email' required />
+          </div>
+          <br />
+          <div className="form-group">
+              <label htmlFor="name">Name</label><br />
+              <input onChange={(e)=>setName(e.target.value)} type="text" className='form-control' name='name' id='name' required />
+          </div>
+          <br />
+          <div className="form-group">
+              <label htmlFor="shortName">Short Name</label><br />
+              <input onChange={(e)=>setShortName(e.target.value)} type="text" className='form-control' name='shortName' id='shortName' required />
+          </div>
+          <br />
+          <div className="form-group">
+              <label htmlFor="categoryId">Category</label><br />
+              <select onChange={(e)=>setCategoryId(e.target.value)} class="custom-select form-control" id="categoryId">
+                <option selected>Choose Category</option>
+                {categories.map((ele,key)=><option key={key} value={ele.id}>{ele.categoryName}</option>)}
+              </select>
+          </div>
+          <br />
+          <button className='btn btn-success' type="submit">Add</button>
+      </form>
     </>: <div>Loading...</div> }
     </>
   )
