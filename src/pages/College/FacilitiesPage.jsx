@@ -26,7 +26,15 @@ export default function FacilitiesPage() {
     "description": "Facilities Details of the College",
     "type": "array",
     items: {
-      type: "string"
+      type: "object",
+      properties: {
+        name: {
+          type: "string"
+        },
+        imageLink: {
+          type: "string"
+        }
+      }
     }
   };
 

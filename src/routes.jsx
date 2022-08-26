@@ -35,7 +35,7 @@ import ReviewPage from "./pages/College/ReviewPage";
 import DisputesPage from "./pages/Admin/DisputesPage";
 import ParticularDisputePage from "./pages/Admin/ParticularDispute";
 import CollegeDisputes from "./pages/Admin/CollegeDisputes";
-
+import ParticularDisputeCollegePage from "./pages/College/ParticularDisputeCollege";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -64,6 +64,7 @@ export default function AppRoutes() {
         <Route path="/college/updates" element={<CollegePage><UpdatesPage /></CollegePage>}/>
         <Route path="/college/review" element={<CollegePage><ReviewPage /></CollegePage>}/>
         <Route path="/college/dispute" element={<CollegePage><DisputesPage /></CollegePage>}/>
+        <Route path="/college/dispute/:dispute_id" element={<CollegePage><ParticularDisputeCollegePage/></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 
