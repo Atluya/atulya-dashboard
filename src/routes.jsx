@@ -30,6 +30,10 @@ import FileUpload from "./pages/College/FileUpload";
 import PlacementsPage from "./pages/College/PlacementsPage";
 import PlacementStats from "./pages/College/PlacementStats";
 import UpdatesPage from "./pages/College/UpdatesPage";
+import NewsPage from "./pages/Admin/News";
+import ReviewPage from "./pages/College/ReviewPage";
+import DisputesPage from "./pages/Admin/DisputesPage";
+import ParticularDisputePage from "./pages/Admin/ParticularDispute";
 
 export default function AppRoutes() {
   return (
@@ -57,6 +61,7 @@ export default function AppRoutes() {
         <Route path="/college/placements" element={<CollegePage><PlacementsPage /></CollegePage>}/>
         <Route path="/college/placement-stats" element={<CollegePage><PlacementStats /></CollegePage>}/>
         <Route path="/college/updates" element={<CollegePage><UpdatesPage /></CollegePage>}/>
+        <Route path="/college/review" element={<CollegePage><ReviewPage /></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 
@@ -66,6 +71,9 @@ export default function AppRoutes() {
         <Route exact path="/admin/add-college" element={<AdminPage><AddCollege/></AdminPage>} />
         <Route exact path="/admin/users" element={<AdminPage><UserTable/></AdminPage>} />
         <Route exact path="/admin/superadmins" element={<AdminPage><SuperadminTable/></AdminPage>} />
+        <Route exact path="/admin/news" element={<AdminPage><NewsPage/></AdminPage>} />
+        <Route exact path="/admin/disputes" element={<AdminPage><DisputesPage/></AdminPage>} />
+        <Route exact path="/admin/disputes/:dispute_id" element={<AdminPage><ParticularDisputePage/></AdminPage>} />
         {/* <Route path="/college/tour" element={<TourPage/>} /> */}
     </Routes>
   )

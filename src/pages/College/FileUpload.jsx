@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import Container from '@mui/material/Container';
+import { Paper } from '@mui/material';
 import { apiBaseUrl } from '../../utils/baseURL';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -39,15 +40,20 @@ export default function FileUpload() {
   return (
     <div>
         <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <form onSubmit={submitHandler}>
-                <input onChange={fileHandler} type="file" name="file" id="file" required />
-                <button className='btn btn-primary' type="submit">Upload</button>
-            </form>
-            <br /><br />
-            <p>
-                {fileLink.length > 0 ? <h6>Link: {fileLink}</h6> : <></>}
-                {fileLink.length > 0 ? <a target={"_blank"} href={fileLink} rel="noreferrer">Link</a> : <></>}
-            </p>
+            <Paper>
+                <br /><br />
+                <h4>File Upload</h4>
+                <br />
+                <form onSubmit={submitHandler}>
+                    <input onChange={fileHandler} type="file" name="file" id="file" required />
+                    <button className='btn btn-primary' type="submit">Upload</button>
+                </form>
+                <br /><br />
+                <p>
+                    {fileLink.length > 0 ? <h6>Link: {fileLink}</h6> : <></>}
+                    {fileLink.length > 0 ? <a target={"_blank"} href={fileLink} rel="noreferrer">Link</a> : <></>}
+                </p>
+            </Paper>
         </Container>
     </div>
   )
