@@ -64,7 +64,7 @@ export default function CollegeDisputes() {
     
         <Container>
         <h4>Add a Dispute</h4><br/><br/>
-            <form onSubmit={submitHandler()}>
+            <form onSubmit={submitHandler}>
                 <br />
                 <div className="form-group">
                     <label htmlFor="remark">Remark</label><br />
@@ -86,7 +86,7 @@ export default function CollegeDisputes() {
                             }}>Resolve</Button>
                         </>}</p>}
                             <p>{
-                            <Button className='btn' onClick={(e) =>navigate(`/admin/disputes/${ele.id}`)}>View Details</Button>}</p>
+                            <Button className='btn' onClick={(e) =>{navigate(`/admin/disputes/${ele.id}`)}}>View Details</Button>}</p>
                         </Paper>
                     </div>
                 </div>)

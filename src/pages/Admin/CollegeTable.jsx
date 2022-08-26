@@ -5,18 +5,11 @@ import { DataGrid, GridEventListener} from '@mui/x-data-grid';
 import { getApiWithoutToken } from '../../app/api-interface';
 import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import { Container, Paper } from '@mui/material';
 
 export default function CollegeTable(props) {
 
   const navigate = useNavigate();
-  const supplyIDs = (ar) => {
-    let arr = ar;
-    for(let i=0; i<arr.length; i++)
-    {
-      arr[i]["id"] = i+1
-    }
-    return arr
-  }
 
     const [colleges, setcolleges] = useState([])
     
@@ -48,50 +41,38 @@ export default function CollegeTable(props) {
             getColleges();
     }, []);
 
-    const renderApproveButton = (params) => {
-      return (
-              <Button onClick={(e) =>navigate(`/admin/college/${params.row.id}`)}>View Details</Button>
-      )
-  }
-
-    const columns = [
-      { 
-        field: 'name', 
-        headerName: 'Name', 
-        width: 200
-      },
-      { 
-        field: 'city', 
-        headerName: 'City', 
-        width: 200 
-      },
-      {
-        field: 'state',
-        headerName: 'State',
-        width: 250,
-      },
-      {
-        field: 'Details',
-        headerName: 'Details',
-        renderCell: renderApproveButton,
-        width: 160,
-      }
-    ];
     
-    const rows = supplyIDs(colleges);
-    console.log(rows)
     
       return (
         <>
         <Button variant="contained" onClick={(e) =>navigate(`/admin/add-college`)}>Add College</Button>
-        <div style={{ height: 630, width: '100%', margin: '20px auto' }}>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            pageSize={10}
-            rowsPerPageOptions={[10]}
-          />
-        </div>
+        <Container>
+          <br />
+          <Paper>
+            <br /><br />
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">City</th>
+                  <th scope="col">More</th>
+                </tr>
+              </thead>
+              <tbody>
+                {colleges.map((ele, key)=><tr key={key}>
+                  <th scope="row">{key+1}</th>
+                  <td>{ele.name}</td>
+                  <td>{ele.city}</td>
+                  <td>{ele.state}</td>
+                  <td><p onClick={(e)=>navigate(`/admin/college/${ele.id}`)} >View Details</p></td>
+                </tr>) }
+              </tbody>
+            </table>
+            <br /><br />
+          </Paper>
+          <br />
+        </Container>
         </>
       );
 }

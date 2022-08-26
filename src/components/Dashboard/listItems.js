@@ -58,7 +58,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Reports" />
+      <ListItemText style={{textDecoration: 'none', color: 'black'}} primary="Customer Reports" />
     </ListItemButton>
     </Link>
     

@@ -8,65 +8,55 @@ import {useNavigate} from "react-router-dom";
 
 export default function CollegeInfo() {
   let {college_id} = useParams();
-  const [ShowScreen, setShowScreen] = useState(false);
-  const [previousDisputes, setPreviousDisputes] = useState([])
-  const [remark, setRemark] = useState("");
+  const [showScreen, setShowScreen] = useState(false);
+  const [collegeData, setCollegeData] = useState({});
   const navigate = useNavigate();
-  const getDisputes = async() => {
-      try{
-          const response = await getApi(`/disputes/?college_id=${college_id}`)
-          let data = response.data
-          console.log(response)
-          console.log(data)
-          setPreviousDisputes(data)
-          setShowScreen(true)
-      }catch(e){
-          toast.error("Some Error Occurred!")
-      }
+
+  const getData = async() => {
+    try{
+        const response = await getApi(`/colleges/college/${college_id}`);
+        setCollegeData(response.data.data)
+        setShowScreen(true);
+        console.log('Hey!')
+        console.log(response.data.data)
+    }catch(e){
+        toast.error("Some Error Occurred!")
+        navigate("/admin/colleges")
+    }
   }
 
   useEffect(()=>{
-      getDisputes();
+    getData();
   }, [])
 
-  const submitHandler = async(e) => {
-      e.preventDefault();
-      const thePayload = {
-          remark
-      }
-      try{
-          const response = await postApi(`/disputes/college/${college_id}`, thePayload);
-          toast.success("Dispute Added Successfully!")
-          await getDisputes();
-      }catch(e){
-          toast.error("Some Error Occurred!")
-      }
-  }
-
-  const resolveDispute = async(dispute_id) => {
-      try{
-          const response = await putApi(`/disputes/${dispute_id}`);
-          toast.success("Dispute Resolved Successfully!")
-          await getDisputes();
-      }catch(e){
-          toast.error("Some Error Occurred!")
-      }
-
-
-  }
-
-//   const gotoDispute = (dispute_id)=>{
-//   navigate(`/admin/disputes/${dispute_id}`);
-//     }
+  
   return (
     <>
-    {ShowScreen ? <>
-    
+    {showScreen ? <>
         <Container>
-        <Button variant="contained" onClick={(e) =>navigate(`/admin/college/disputes/${college_id}`)}>View Disputes</Button>
-
-
-        </Container>
+        <h4>College Data</h4>
+            <Button variant="contained" onClick={(e) =>navigate(`/admin/college/disputes/${college_id}`)}>View Disputes</Button>
+            <br /><br />
+            <Container>
+                
+                <br />
+                <Paper>
+                    <br /><br />
+                    <div className="container">
+                        <div className="row">
+                            <p>ID: {collegeData["id"]}</p>
+                        </div>
+                        <div className="row">
+                            <h6>{collegeData["name"]} - {collegeData["shortName"]}</h6>
+                        </div>
+                        <div className="row">
+                            <h6>{collegeData["name"]} ({collegeData["shortName"]})</h6>
+                        </div>
+                    </div>
+                    <br /><br />
+                </Paper>
+            </Container>
+            </Container>
         </>: <div>Loading...</div> }
     </>
   )
