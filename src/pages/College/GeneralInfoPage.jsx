@@ -89,7 +89,7 @@ export default function GeneralInfoPage() {
       },
       instituteType: {
         type: "string",
-        enum: ["Private", "Government"]
+        enum: ["Private", "Public"]
       }
     }
   };
