@@ -6,7 +6,7 @@ import { Container, Paper } from '@mui/material';
 import Button from '@mui/material/Button';
 import {useNavigate} from "react-router-dom";
 
-export default function DisputesPage() {
+export default function CollegeDisputes() {
   let {college_id} = useParams();
   const [ShowScreen, setShowScreen] = useState(false);
   const [previousDisputes, setPreviousDisputes] = useState([])
@@ -29,6 +29,32 @@ export default function DisputesPage() {
       getDisputes();
   }, [])
 
+  const submitHandler = async(e) => {
+      e.preventDefault();
+      const thePayload = {
+          remark
+      }
+      try{
+          const response = await postApi(`/disputes/college/${college_id}`, thePayload);
+          toast.success("Dispute Added Successfully!")
+          await getDisputes();
+      }catch(e){
+          toast.error("Some Error Occurred!")
+      }
+  }
+
+  const resolveDispute = async(dispute_id) => {
+      try{
+          const response = await putApi(`/disputes/${dispute_id}`);
+          toast.success("Dispute Resolved Successfully!")
+          await getDisputes();
+      }catch(e){
+          toast.error("Some Error Occurred!")
+      }
+
+
+  }
+
 //   const gotoDispute = (dispute_id)=>{
 //   navigate(`/admin/disputes/${dispute_id}`);
 //     }
@@ -37,6 +63,16 @@ export default function DisputesPage() {
     {ShowScreen ? <>
     
         <Container>
+        <h4>Add a Dispute</h4><br/><br/>
+            <form onSubmit={submitHandler()}>
+                <br />
+                <div className="form-group">
+                    <label htmlFor="remark">Remark</label><br />
+                    <input onChange={(e)=>setRemark(e.target.value)} type="text" className='form-control' name='remark' id='remark' required />
+                </div>
+                <br />
+                <button className='btn btn-success' type="submit">Add</button>
+            </form>
         {previousDisputes.length>0?<h4>Disputes:</h4>:<></>}
         {
                 previousDisputes.map((ele,key)=><div className='row' key={key}>
@@ -45,10 +81,12 @@ export default function DisputesPage() {
                             <br />
                             <p>Remark: {ele.remark}</p>
                             {<p>{ele.resolved?<>Resolved</>:<>
-                            Not Resolved
+                            <Button className='btn' onClick={async(e)=>{
+                                await resolveDispute(ele.id)
+                            }}>Resolve</Button>
                         </>}</p>}
                             <p>{
-                            <Button className='btn' onClick={(e) =>navigate(`/college/disputes/${ele.id}`)}>View Details</Button>}</p>
+                            <Button className='btn' onClick={(e) =>navigate(`/admin/disputes/${ele.id}`)}>View Details</Button>}</p>
                         </Paper>
                     </div>
                 </div>)

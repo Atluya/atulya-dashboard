@@ -34,6 +34,7 @@ import NewsPage from "./pages/Admin/News";
 import ReviewPage from "./pages/College/ReviewPage";
 import DisputesPage from "./pages/Admin/DisputesPage";
 import ParticularDisputePage from "./pages/Admin/ParticularDispute";
+import CollegeDisputes from "./pages/Admin/CollegeDisputes";
 
 export default function AppRoutes() {
   return (
@@ -75,6 +76,7 @@ export default function AppRoutes() {
         <Route exact path="/admin/news" element={<AdminPage><NewsPage/></AdminPage>} />
         <Route exact path="/admin/disputes" element={<AdminPage><DisputesPage/></AdminPage>} />
         <Route exact path="/admin/disputes/:dispute_id" element={<AdminPage><ParticularDisputePage/></AdminPage>} />
+        <Route exact path="/admin/college/disputes/:college_id" element={<AdminPage><CollegeDisputes/></AdminPage>} />
         {/* <Route path="/college/tour" element={<TourPage/>} /> */}
     </Routes>
   )

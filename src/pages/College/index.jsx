@@ -17,6 +17,8 @@ import { useSelector } from 'react-redux';
 import { selectCollege } from '../../app/redux/reducers/collegeReducer';
 import { useDispatch } from 'react-redux';
 import { getCollegeAction } from '../../app/redux/api/college';
+import { getToken, getUserRoleFromToken } from '../../utils/functions';
+import { useNavigate } from 'react-router-dom';
 
 export default function CollegePage(props) {
 
@@ -28,13 +30,25 @@ export default function CollegePage(props) {
         await dispatch(getCollegeAction());
         setShowScreen(true);
     }
+    const navigate = useNavigate();
 
     useEffect(()=>{
-        if(JSON.stringify(data) === "{}"){
-            getTheCollegeData()
-        }else{
-            setShowScreen(true);
+        if(getToken()==="")
+        {
+            navigate("/login");
         }
+        const role = getUserRoleFromToken(getToken());
+        console.log(role);
+        if(role!=='college'){
+          navigate("/login");
+        }else{
+            if(JSON.stringify(data) === "{}"){
+                getTheCollegeData()
+            }else{
+                setShowScreen(true);
+            }
+        }
+        
     }, [data]);
     
   return (

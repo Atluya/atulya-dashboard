@@ -84,9 +84,15 @@ export default function GeneralInfoPage() {
       "shortBio": {
         "type": "string"
       },
+      "studentsEnrolled": {
+        type: "string"
+      },
+      instituteType: {
+        type: "string",
+        enum: ["Private", "Government"]
+      }
     }
   };
-
 
   return (
     <>

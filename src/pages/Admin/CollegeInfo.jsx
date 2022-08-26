@@ -63,32 +63,8 @@ export default function CollegeInfo() {
     {ShowScreen ? <>
     
         <Container>
-            <h4>Add a Dispute</h4>
-            <form onSubmit={submitHandler}>
-                <br />
-                <div className="form-group">
-                    <label htmlFor="remark">Remark</label><br />
-                    <input onChange={(e)=>setRemark(e.target.value)} type="text" className='form-control' name='remark' id='remark' required />
-                </div>
-                <br />
-                <button className='btn btn-success' type="submit">Add</button>
-            </form>
-            <br /><br />
+        <Button variant="contained" onClick={(e) =>navigate(`/admin/college/disputes/${college_id}`)}>View Disputes</Button>
 
-            {previousDisputes.length>0?<h4>Disputes:</h4>:<></>}
-            {
-                previousDisputes.map((ele,key)=><div className='row' key={key}>
-                    <div className="container">
-                        <Paper style={{cursor: 'pointer', margin: '10px auto'}}>
-                            <br />
-                            <p>Remark: {ele.remark}</p>
-                            <p>{ele.resolved?<>Resolved</>:<>
-                            <Button className='btn'>Resolve</Button>
-                            </>}</p>
-                        </Paper>
-                    </div>
-                </div>)
-            }
 
         </Container>
         </>: <div>Loading...</div> }

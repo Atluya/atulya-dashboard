@@ -70,12 +70,12 @@ export default function CollegeTable(props) {
         headerName: 'State',
         width: 250,
       },
-      // {
-      //   field: 'Details',
-      //   headerName: 'Details',
-      //   renderCell: renderApproveButton,
-      //   width: 160,
-      // }
+      {
+        field: 'Details',
+        headerName: 'Details',
+        renderCell: renderApproveButton,
+        width: 160,
+      }
     ];
     
     const rows = supplyIDs(colleges);
