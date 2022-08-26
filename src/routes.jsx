@@ -62,6 +62,7 @@ export default function AppRoutes() {
         <Route path="/college/placement-stats" element={<CollegePage><PlacementStats /></CollegePage>}/>
         <Route path="/college/updates" element={<CollegePage><UpdatesPage /></CollegePage>}/>
         <Route path="/college/review" element={<CollegePage><ReviewPage /></CollegePage>}/>
+        <Route path="/college/dispute" element={<CollegePage><DisputesPage /></CollegePage>}/>
         {/* <Route path="/college/courses" element={<CollegePage><CoursesPage/></CollegePage>}/>
          */}
 

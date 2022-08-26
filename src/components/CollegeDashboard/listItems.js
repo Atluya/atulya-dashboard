@@ -172,14 +172,14 @@ export const mainListItems = (
         <ListItemText primary="Hostel" />
     </ListItemButton>
   </Link>
-  <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/ads"}>
+  {/* <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/ads"}>
     <ListItemButton>
         <ListItemIcon>
           <DashboardIcon />
         </ListItemIcon>
         <ListItemText primary="Ads Analytics" />
     </ListItemButton>
-  </Link>
+  </Link> */}
   <Link style={{textDecoration: 'none', color: 'black'}} to={"/college/review"}>
     <ListItemButton>
         <ListItemIcon>

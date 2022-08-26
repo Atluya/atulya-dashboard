@@ -16,8 +16,15 @@ export default function LocationPage() {
   let data = useSelector(selectCollege);
 
   useEffect(()=>{
-    data["longitude"] = data["location"]["coordinates"][0]
-    data["latitude"] = data["location"]["coordinates"][1]
+    try{
+      data["longitude"] = data["location"]["coordinates"][0]
+      data["latitude"] = data["location"]["coordinates"][1]
+    }
+    catch(e){
+      data["longitude"] = ""
+      data["longitude"] = ""
+    }
+    
   }, [])
 
   

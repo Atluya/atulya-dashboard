@@ -69,7 +69,7 @@ export default function ReviewPage() {
             <br />
             <h4>Warnings: ({reviewData.warnings.length})</h4>
             <br />
-            {reviewData.warnings.map((ele, key)=> <p style={{color: 'yellow'}} key={key}>{ele}</p>)}
+            {reviewData.warnings.map((ele, key)=> <p style={{color: 'dark-orange'}} key={key}>{ele}</p>)}
             <br />
         </Paper>
         <br />

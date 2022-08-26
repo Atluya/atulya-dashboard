@@ -4,11 +4,12 @@ import { deleteApi, getApi, postApi, putApi } from '../../app/api-interface'
 import jwt_decode from "jwt-decode"
 import { toast } from 'react-toastify'
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom'
 
 export default function DisputesPage() {
 
     const [previousDisputes, setPreviousDisputes] = useState([])
-
+    const navigate = useNavigate();
     const [college_id, setCollege_id] = useState("");
     const [remark, setRemark] = useState("");
     const [dispute_id, setDispute_id] = useState("");
@@ -49,8 +50,6 @@ export default function DisputesPage() {
         }catch(e){
             toast.error("Some Error Occurred!")
         }
-
-
     }
 
 
@@ -84,11 +83,12 @@ export default function DisputesPage() {
                             <br />
                             <h6>College ID: {ele.collegeId}</h6>
                             <p>Remark: {ele.remark}</p>
-                            <p>{ele.resolved?<>Resolved</>:<>
+                            {/*<p>{ele.resolved?<>Resolved</>:<>
                             <Button className='btn' onClick={async(e)=>{
                                 await resolveDispute(ele.id)
                             }}>Resolve</Button>
-                            </>}</p>
+                            </>}</p>*/}
+                            <Button onClick={(e) =>navigate(`/admin/disputes/${ele.id}`)}>View Details</Button>
                         </Paper>
                     </div>
                 </div>)

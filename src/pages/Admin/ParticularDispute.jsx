@@ -16,6 +16,7 @@ export default function ParticularDisputePage() {
 
     const getDispute = async() => {
         try{
+            console.log(`/disputes/${dispute_id}`);
             const dispute = await getApi(`/disputes/${dispute_id}`)
             console.log(dispute)
             setDispute(dispute.data)
