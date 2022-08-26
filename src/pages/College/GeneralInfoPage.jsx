@@ -85,7 +85,7 @@ export default function GeneralInfoPage() {
         "type": "string"
       },
       "studentsEnrolled": {
-        type: "string"
+        type: "number"
       },
       instituteType: {
         type: "string",
